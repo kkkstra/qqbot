@@ -1,0 +1,7 @@
+app:
+  addr: ":7777"
+cqhttp:
+  addr: "http://localhost:5700"
+bot:
+  qq: "2494611478"
+  name: "肥肥鲨bot"

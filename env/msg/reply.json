@@ -1,0 +1,59 @@
+{
+  "default_msg": [
+    "你好qwq，我是肥肥鲨！",
+    "你好呀，肥肥鲨在此！",
+    "Hello，我是肥肥鲨qwq！"
+  ],
+  "msg": [
+    {
+      "keywords": [
+        "你好",
+        "Hi",
+        "Hello",
+        "hi",
+        "hello",
+        "嗨",
+        "嘿"
+      ],
+      "messages": [
+        "你好qwq，我是肥肥鲨！",
+        "你好呀，肥肥鲨在此！",
+        "Hello，我是肥肥鲨qwq！"
+      ]
+    },
+    {
+      "keywords": [
+        "再见",
+        "拜拜",
+        "白白",
+        "bye",
+        "BYE",
+        "Bye"
+      ],
+      "messages": [
+        "你好qwq，我是肥肥鲨！",
+        "你好呀，肥肥鲨在此！",
+        "Hello，我是肥肥鲨qwq！"
+      ]
+    },
+    {
+      "keywords": [
+        "谢谢",
+        "thx",
+        "thank",
+        "tks",
+        "Thx",
+        "Thank",
+        "Tks",
+        "THX",
+        "THANK",
+        "TKS"
+      ],
+      "messages": [
+        "不用谢，肥肥鲨该做的！",
+        "肥肥鲨谢谢你！",
+        "让我们一起谢谢肥肥鲨！"
+      ]
+    }
+  ]
+}
