@@ -8,9 +8,11 @@ import (
 )
 
 type config struct {
-	App    app    `yaml:"app"`
-	Cqhttp cqhttp `yaml:"cqhttp"`
-	Bot    bot    `yaml:"bot"`
+	App        app        `yaml:"app"`
+	Cqhttp     cqhttp     `yaml:"cqhttp"`
+	Postgresql postgresql `yaml:"postgresql"`
+	Bot        bot        `yaml:"bot"`
+	ChatGpt    chatgpt    `yaml:"chatgpt"`
 }
 
 type app struct {
@@ -21,9 +23,22 @@ type cqhttp struct {
 	Addr string `yaml:"addr"`
 }
 
+type postgresql struct {
+	Host     string `yaml:"host"`
+	User     string `yaml:"user"`
+	Password string `yaml:"password"`
+	Dbname   string `yaml:"dbname"`
+	Port     string `yaml:"port"`
+}
+
 type bot struct {
 	Qq   string `yaml:"qq"`
 	Name string `yaml:"name"`
+}
+
+type chatgpt struct {
+	Token   string `yaml:"token"`
+	Cfvalue string `json:"cfvalue"`
 }
 
 var C *config

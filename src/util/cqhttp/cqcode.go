@@ -2,7 +2,9 @@ package cqhttp
 
 import (
 	"fatsharkbot/src/config"
+	"fatsharkbot/src/util"
 	"fmt"
+	"strconv"
 )
 
 var (
@@ -17,3 +19,16 @@ var (
 	RawAtBot       = fmt.Sprintf("@%s", config.C.Bot.Name)
 	RawAtBotSpace  = fmt.Sprintf("@%s ", config.C.Bot.Name)
 )
+
+func GetRandomCodeFace() string {
+	faceId := util.RandInt32(222)
+	return fmt.Sprintf(CodeFace, strconv.Itoa(int(faceId)))
+}
+
+func GetCodePoke(qq int64) string {
+	return fmt.Sprintf(CodePoke, strconv.Itoa(int(qq)))
+}
+
+func GetCodeAt(qq int64) string {
+	return fmt.Sprintf(CodeAt, strconv.Itoa(int(qq)))
+}

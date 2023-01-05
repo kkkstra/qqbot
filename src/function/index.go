@@ -19,6 +19,7 @@ type Function interface {
 
 // sorted by priority
 var funcs = []Function{
+	sendSticker,
 	autoReply,
 }
 
