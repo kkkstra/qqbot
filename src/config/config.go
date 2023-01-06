@@ -12,7 +12,6 @@ type config struct {
 	Cqhttp     cqhttp     `yaml:"cqhttp"`
 	Postgresql postgresql `yaml:"postgresql"`
 	Bot        bot        `yaml:"bot"`
-	ChatGpt    chatgpt    `yaml:"chatgpt"`
 }
 
 type app struct {
@@ -35,11 +34,6 @@ type postgresql struct {
 type bot struct {
 	Qq   string `yaml:"qq"`
 	Name string `yaml:"name"`
-}
-
-type chatgpt struct {
-	Token   string `yaml:"token"`
-	Cfvalue string `json:"cfvalue"`
 }
 
 var C *config

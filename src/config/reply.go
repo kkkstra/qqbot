@@ -59,6 +59,7 @@ func initReply() {
 	file, err := os.Open(fmt.Sprintf("./env/msg/%s", replyFile))
 	if err != nil {
 		log.Println(err)
+		return
 	}
 	dec := json.NewDecoder(file)
 	r := reply{}
@@ -69,6 +70,7 @@ func initReply() {
 	err = file.Close()
 	if err != nil {
 		log.Println(err)
+		return
 	}
 	R = &r
 }
