@@ -2,6 +2,8 @@ package controller
 
 import (
 	"fatsharkbot/src/function"
+	"fatsharkbot/src/function/poke"
+	"fatsharkbot/src/function/reply"
 	"fatsharkbot/src/util/cqhttp"
 	"github.com/gin-gonic/gin"
 )
@@ -18,11 +20,12 @@ func EventHandler(c *gin.Context) {
 }
 
 func messageHandler(event *cqhttp.CqhttpEvent) {
+	//fmt.Println(event)
 	if event.MessageType == "group" {
 		switch {
 		// simply @bot
 		case event.AtBot():
-			_ = function.SendDefaultGroupMsg(event)
+			_ = reply.SendDefaultGroupMsg(event)
 		// @bot and say something
 		case event.InteractWithBot():
 			_ = function.Awake(event)
@@ -38,6 +41,6 @@ func messageHandler(event *cqhttp.CqhttpEvent) {
 func noticeHandler(event *cqhttp.CqhttpEvent) {
 	// 拍一拍
 	if event.PokeBot() {
-		_ = function.PokePoke(event)
+		_ = poke.PokePoke(event)
 	}
 }

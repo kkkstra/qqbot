@@ -1,4 +1,4 @@
-package function
+package reply
 
 import (
 	"fatsharkbot/src/config"
@@ -8,7 +8,7 @@ import (
 
 type AutoReply struct{}
 
-var autoReply *AutoReply
+var AutoReplyFunc *AutoReply
 
 func SendDefaultPrivateMsg(event *cqhttp.CqhttpEvent) error {
 	msg := "你好qwq，我是肥肥鲨bot！" + cqhttp.GetRandomCodeFace()
@@ -34,7 +34,7 @@ func (f *AutoReply) MatchesAwake(event *cqhttp.CqhttpEvent) bool {
 }
 
 func (f *AutoReply) MatchesListen(event *cqhttp.CqhttpEvent) bool {
-	return true
+	return false
 }
 
 func (f *AutoReply) MatchesPrivateAwake(event *cqhttp.CqhttpEvent) bool {
@@ -80,14 +80,5 @@ func (f *AutoReply) WorkPrivateAwake(event *cqhttp.CqhttpEvent) error {
 }
 
 func (f *AutoReply) WorkListen(event *cqhttp.CqhttpEvent) error {
-	//for _, reply := range config.R.RepliesWithoutAt {
-	//	if event.TextContainsAny(reply.Keywords) {
-	//		err := event.SendGroupMsgList(reply.Message)
-	//		if err != nil {
-	//			log.Logger.Error(err)
-	//		}
-	//		return nil
-	//	}
-	//}
 	return nil
 }

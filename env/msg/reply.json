@@ -1,10 +1,20 @@
 {
   "default_msg": [
-    "你好qwq，我是肥肥鲨！",
-    "你好呀，肥肥鲨在此！",
-    "Hello，我是肥肥鲨qwq！"
+    "你好qwq，我是肥肥鲨！发送“帮助”或“help”试试看！\n\n如果喜欢肥肥鲨，就给肥肥鲨点一颗小星星吧：github.com/kkkstra/fatsharkbot",
+    "你好呀，肥肥鲨在此！\n，面对肥肥鲨一脸迷茫？为什么不发送“帮助”或“help”试试！\n\n如果喜欢肥肥鲨，就给肥肥鲨点一颗小星星吧：github.com/kkkstra/fatsharkbot",
+    "Hello，我是肥肥鲨qwq！\n不知道肥肥鲨会干啥？不如发送“帮助”或“help”试试！\n\n如果喜欢肥肥鲨，就给肥肥鲨点一颗小星星吧：github.com/kkkstra/fatsharkbot"
   ],
   "msg": [
+    {
+      "keywords": [
+        "帮助",
+        "Help",
+        "help"
+      ],
+      "messages": [
+        "肥肥鲨在此，终于等到你！\n1. 直接 @肥肥鲨bot 或者 私戳肥肥鲨 就可以和肥肥鲨互动\n2. 收藏图片：发送 \"收藏 tag=标签\" 就可以收藏图片\n3. 发送图片：发送 \"发<标签>\" 就可以让肥肥鲨发送对应图片\n4. 删除图片：群主或管理员回复要删除的图片 \"删除\" 就可以删除图片\n5. 戳一戳肥肥鲨，肥肥鲨也会戳你哦！\n\n如果喜欢肥肥鲨，就给肥肥鲨点一颗小星星吧：github.com/kkkstra/fatsharkbot"
+      ]
+    },
     {
       "keywords": [
         "你好",

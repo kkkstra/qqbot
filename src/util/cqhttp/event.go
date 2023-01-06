@@ -43,8 +43,11 @@ type sender struct {
 }
 
 type data struct {
-	QQ   string `json:"qq,omitempty"`   // "type": "at"
-	Text string `json:"text,omitempty"` // "type": "text"
+	QQ   string `json:"qq,omitempty"`   // CQ: at
+	Text string `json:"text,omitempty"` // CQ: text
+	File string `json:"file,omitempty"` // CQ: image
+	Url  string `json:"url,omitempty"`  // CQ: image
+	Id   string `json:"id,omitempty"`   // CQ: reply
 }
 
 type anonymous struct {
@@ -61,7 +64,15 @@ func (event *CqhttpEvent) AtBot() bool {
 }
 
 func (event *CqhttpEvent) InteractWithBot() bool {
-	return strings.Contains(event.RawMessage, RawAtBot) || strings.Contains(event.RawMessage, CodeAtBot)
+	for _, v := range event.Message {
+		if v.Type == "at" && v.Data.QQ == config.C.Bot.Qq {
+			return true
+		}
+	}
+	//if strings.Contains(event.RawMessage, RawAtBot) || strings.Contains(event.RawMessage, CodeAtBot) {
+	//	return true
+	//}
+	return false
 }
 
 func (event *CqhttpEvent) PokeBot() bool {
@@ -74,5 +85,19 @@ func (event *CqhttpEvent) TextContainsAny(keywords []string) bool {
 			return true
 		}
 	}
+	return false
+}
+
+func (event *CqhttpEvent) TextHasPrefix(keyword string) bool {
+	for _, v := range event.Message {
+		if v.Type == "text" && strings.HasPrefix(strings.TrimPrefix(v.Data.Text, " "), keyword) {
+			return true
+		}
+	}
+	//rawMessage := strings.TrimPrefix(event.RawMessage, " ")
+	//if strings.HasPrefix(strings.TrimPrefix(rawMessage, RawAtBot), keyword) ||
+	//	strings.HasPrefix(strings.TrimPrefix(rawMessage, RawAtBotSpace), keyword) {
+	//	return true
+	//}
 	return false
 }

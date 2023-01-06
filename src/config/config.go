@@ -16,7 +16,8 @@ type config struct {
 }
 
 type app struct {
-	Addr string `yaml:"addr"`
+	Addr      string `yaml:"addr"`
+	ImagePath string `yaml:"image_path"`
 }
 
 type cqhttp struct {

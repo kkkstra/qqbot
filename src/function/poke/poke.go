@@ -1,4 +1,4 @@
-package function
+package poke
 
 import (
 	"fatsharkbot/src/util/cqhttp"

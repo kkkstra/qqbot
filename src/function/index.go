@@ -1,6 +1,8 @@
 package function
 
 import (
+	"fatsharkbot/src/function/reply"
+	"fatsharkbot/src/function/sticker"
 	"fatsharkbot/src/util/cqhttp"
 )
 
@@ -12,15 +14,18 @@ type Function interface {
 	// 私聊匹配
 	MatchesPrivateAwake(*cqhttp.CqhttpEvent) bool
 	// 触发动作
-	WorkPrivateAwake(*cqhttp.CqhttpEvent) error
 	WorkAwake(*cqhttp.CqhttpEvent) error
 	WorkListen(*cqhttp.CqhttpEvent) error
+	WorkPrivateAwake(*cqhttp.CqhttpEvent) error
 }
 
 // sorted by priority
 var funcs = []Function{
-	sendSticker,
-	autoReply,
+	sticker.SendStickerFunc,
+	sticker.CollectStickerFunc,
+	sticker.SaveStickerFunc,
+	sticker.DeleteStickerFunc,
+	reply.AutoReplyFunc,
 }
 
 func Awake(event *cqhttp.CqhttpEvent) error {

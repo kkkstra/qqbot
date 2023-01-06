@@ -1,5 +1,6 @@
 app:
   addr: ":7777"
+  image_path: "/home/kkkstra/Pictures/cqhttp/"
 cqhttp:
   addr: "http://localhost:5700"
 postgresql:
