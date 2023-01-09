@@ -11,6 +11,7 @@ type CqhttpEvent struct {
 	SelfId      int64     `json:"self_id,omitempty"`      // 机器人QQ
 	UserId      int64     `json:"user_id,omitempty"`      // 发送者QQ
 	PostType    string    `json:"post_type,omitempty"`    // 上报类型
+	NoticeType  string    `json:"notice_type,omitempty"`  // 通知类型
 	MessageType string    `json:"message_type,omitempty"` // 消息类型
 	SubType     string    `json:"sub_type,omitempty"`     // normal、anonymous、notice、poke
 	MessageId   int32     `json:"message_id,omitempty"`   // 消息ID
@@ -22,6 +23,7 @@ type CqhttpEvent struct {
 	TargetId    int64     `json:"target_id,omitempty"`    // 被戳者 QQ 号
 	Anonymous   anonymous `json:"anonymous,omitempty"`    // 匿名消息
 	TempSource  int       `json:"temp_source,omitempty"`  // 临时消息来源
+	OperatorId  int64     `json:"operator_id,omitempty"`
 }
 
 type message struct {
@@ -77,6 +79,10 @@ func (event *CqhttpEvent) InteractWithBot() bool {
 
 func (event *CqhttpEvent) PokeBot() bool {
 	return event.SubType == "poke" && strconv.FormatInt(event.TargetId, 10) == config.C.Bot.Qq
+}
+
+func (event *CqhttpEvent) GroupIncrease() bool {
+	return event.NoticeType == "group_increase"
 }
 
 func (event *CqhttpEvent) TextContainsAny(keywords []string) bool {

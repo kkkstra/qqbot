@@ -40,7 +40,10 @@ func messageHandler(event *cqhttp.CqhttpEvent) {
 
 func noticeHandler(event *cqhttp.CqhttpEvent) {
 	// 拍一拍
-	if event.PokeBot() {
+	switch {
+	case event.PokeBot():
 		_ = poke.PokePoke(event)
+	case event.GroupIncrease():
+		_ = reply.SendMsgWhenGroupIncrease(event)
 	}
 }
