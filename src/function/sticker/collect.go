@@ -35,8 +35,8 @@ func (f *CollectSticker) WorkListen(event *cqhttp.CqhttpEvent) error {
 
 func (f *CollectSticker) WorkPrivateAwake(event *cqhttp.CqhttpEvent) error {
 	for _, v := range event.Message {
-		if v.Type == "text" && strings.Contains(v.Data.Text, "tag") {
-			i := strings.Index(v.Data.Text, "tag")
+		if v.Type == "text" && strings.Contains(v.Data.Text, "tag=") {
+			i := strings.Index(v.Data.Text, "tag=")
 			tag := v.Data.Text[i+4:]
 			tag = strings.TrimPrefix(tag, " ")
 			tag = strings.TrimSuffix(tag, " ")
@@ -68,8 +68,8 @@ func (f *CollectSticker) WorkPrivateAwake(event *cqhttp.CqhttpEvent) error {
 
 func (f *CollectSticker) WorkGroup(event *cqhttp.CqhttpEvent) error {
 	for _, v := range event.Message {
-		if v.Type == "text" && strings.Contains(v.Data.Text, "tag") {
-			i := strings.Index(v.Data.Text, "tag")
+		if v.Type == "text" && strings.Contains(v.Data.Text, "tag=") {
+			i := strings.Index(v.Data.Text, "tag=")
 			tag := v.Data.Text[i+4:]
 			tag = strings.TrimPrefix(tag, " ")
 			tag = strings.TrimSuffix(tag, " ")
